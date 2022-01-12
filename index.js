@@ -32,6 +32,7 @@ app.get('/', (request, response) => {
     app.delete('/login/:id', repository.deletLogin)
 
     app.post('/produto', repository.createProduto)
-    app.get('/produto/:id', repository.getProdutoId)
-    app.put('/Produto/:id', repository.updateProduto)
-    app.delete('/Produto/:id', repository.deleteProduto)
+    app.get('/produto', repository.getProdutos)
+    app.get('/produto/:id', repository.getProdutoById)
+    app.put('/produto/:id', repository.updateProduto)
+    app.delete('/produto/:id', repository.deleteProduto)

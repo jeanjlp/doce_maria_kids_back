@@ -83,7 +83,7 @@ const Pool = require('pg').Pool;
 
     //PRODUTO
 
-    const getProduto = (request, response) => {
+    const getProdutos = (request, response) => {
         pool.query('SELECT * FROM produto ORDER BY id DESC', (error, results) => {
           if (error) {
             throw error
@@ -104,7 +104,7 @@ const Pool = require('pg').Pool;
       }
       
       const createProduto = (request, response) => {
-        const { nome, email, telefone } = request.body
+        const { descricao, tamanho, valor_compra, valor_venda, quantidade } = request.body
       
         pool.query('INSERT INTO produto (descricao, tamanho, valor_compra, valor_venda, quantidade) VALUES ($1, $2, $3, $4, $5)',
              [descricao, tamanho, valor_compra, valor_venda, quantidade], (error, result) => {
@@ -144,7 +144,7 @@ const Pool = require('pg').Pool;
 
 
     module.exports = {getLogins, getLoginId, createLogin, validaLogin, updateLogin, deletLogin,
-        getProduto,
+        getProdutos,
         getProdutoById,
         createProduto,
         updateProduto,
